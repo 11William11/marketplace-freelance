@@ -1,0 +1,78 @@
+# ============================================================
+# Docker Compose — Marketplace de Servicios Freelance
+# ============================================================
+# Levanta 3 servicios:
+#   1. db       → PostgreSQL 16 (puerto 5432)
+#   2. backend  → NestJS API    (puerto 3001)
+#   3. frontend → Next.js App   (puerto 3000)
+#
+# Uso:
+#   docker compose up -d          → levantar todo en segundo plano
+#   docker compose down           → detener y eliminar contenedores
+#   docker compose logs -f backend → ver logs en tiempo real
+# ============================================================
+
+services:
+  # ── Base de datos PostgreSQL ──────────────────────────────
+  db:
+    image: postgres:16-alpine
+    container_name: marketplace_db
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${DB_USER} -d ${DB_NAME}']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── Backend NestJS ────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: marketplace_backend
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
+      PORT: 3001
+    ports:
+      - '3001:3001'
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+
+  # ── Frontend Next.js ──────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: marketplace_frontend
+    restart: unless-stopped
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:3001
+    ports:
+      - '3000:3000'
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+
+# ── Volúmenes con nombre ─────────────────────────────────────
+volumes:
+  postgres_data:
