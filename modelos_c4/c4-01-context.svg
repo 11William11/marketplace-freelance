@@ -1,0 +1,100 @@
+<svg viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <!-- Background -->
+  <rect width="900" height="620" fill="#f8f9fc"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" font-size="20" font-weight="bold" fill="#1e293b">Marketplace Freelance — Diagrama de Contexto (C4 Nivel 1)</text>
+  <text x="450" y="58" text-anchor="middle" font-size="12" fill="#64748b">¿Quién usa el sistema y con qué sistemas externos interactúa?</text>
+
+  <!-- Legend box -->
+  <rect x="20" y="548" width="860" height="56" rx="8" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="36" y="562" width="18" height="18" rx="3" fill="#6366f1"/>
+  <text x="62" y="575" font-size="11" fill="#1e293b">Persona (Usuario)</text>
+  <rect x="200" y="562" width="18" height="18" rx="3" fill="#0ea5e9"/>
+  <text x="226" y="575" font-size="11" fill="#1e293b">Sistema Principal</text>
+  <rect x="380" y="562" width="18" height="18" rx="3" fill="#94a3b8"/>
+  <text x="406" y="575" font-size="11" fill="#1e293b">Sistema Externo</text>
+  <line x1="540" y1="571" x2="580" y2="571" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="588" y="575" font-size="11" fill="#1e293b">Relación</text>
+
+  <!-- ===== MAIN SYSTEM (center) ===== -->
+  <rect x="310" y="230" width="280" height="130" rx="12" fill="#0ea5e9" stroke="#0284c7" stroke-width="2"/>
+  <text x="450" y="265" text-anchor="middle" font-size="15" font-weight="bold" fill="white">🛒 Marketplace Freelance</text>
+  <text x="450" y="284" text-anchor="middle" font-size="11" fill="#e0f2fe">[Sistema de Software]</text>
+  <line x1="330" y1="295" x2="570" y2="295" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <text x="450" y="312" text-anchor="middle" font-size="10.5" fill="#e0f2fe">Plataforma web para que clientes</text>
+  <text x="450" y="327" text-anchor="middle" font-size="10.5" fill="#e0f2fe">contraten servicios de freelancers.</text>
+  <text x="450" y="342" text-anchor="middle" font-size="10.5" fill="#e0f2fe">NestJS + Next.js + PostgreSQL</text>
+
+  <!-- ===== ACTOR: Cliente ===== -->
+  <circle cx="110" cy="175" r="28" fill="#6366f1" stroke="#4338ca" stroke-width="2"/>
+  <text x="110" y="179" text-anchor="middle" font-size="20" fill="white">🧑‍💼</text>
+  <rect x="30" y="212" width="160" height="66" rx="8" fill="#6366f1" stroke="#4338ca" stroke-width="1.5"/>
+  <text x="110" y="232" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Cliente</text>
+  <text x="110" y="248" text-anchor="middle" font-size="10" fill="#e0e7ff">[Persona]</text>
+  <text x="110" y="263" text-anchor="middle" font-size="10" fill="#e0e7ff">Busca y contrata</text>
+  <text x="110" y="276" text-anchor="middle" font-size="10" fill="#e0e7ff">servicios freelance</text>
+
+  <!-- Arrow: Cliente → Sistema -->
+  <line x1="192" y1="270" x2="308" y2="290" stroke="#4338ca" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="308,290 296,284 299,296" fill="#4338ca"/>
+  <rect x="192" y="252" width="110" height="28" rx="5" fill="white" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="247" y="265" text-anchor="middle" font-size="9.5" fill="#475569">Gestiona solicitudes,</text>
+  <text x="247" y="277" text-anchor="middle" font-size="9.5" fill="#475569">ve servicios</text>
+
+  <!-- ===== ACTOR: Freelancer ===== -->
+  <circle cx="790" cy="175" r="28" fill="#6366f1" stroke="#4338ca" stroke-width="2"/>
+  <text x="790" y="179" text-anchor="middle" font-size="20" fill="white">👨‍💻</text>
+  <rect x="710" y="212" width="160" height="66" rx="8" fill="#6366f1" stroke="#4338ca" stroke-width="1.5"/>
+  <text x="790" y="232" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Freelancer</text>
+  <text x="790" y="248" text-anchor="middle" font-size="10" fill="#e0e7ff">[Persona]</text>
+  <text x="790" y="263" text-anchor="middle" font-size="10" fill="#e0e7ff">Publica servicios y</text>
+  <text x="790" y="276" text-anchor="middle" font-size="10" fill="#e0e7ff">gestiona proyectos</text>
+
+  <!-- Arrow: Sistema → Freelancer -->
+  <line x1="592" y1="290" x2="708" y2="270" stroke="#4338ca" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="708,270 698,264 700,276" fill="#4338ca"/>
+  <rect x="598" y="252" width="112" height="28" rx="5" fill="white" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="654" y="265" text-anchor="middle" font-size="9.5" fill="#475569">Notifica solicitudes,</text>
+  <text x="654" y="277" text-anchor="middle" font-size="9.5" fill="#475569">gestiona proyectos</text>
+
+  <!-- Arrow: Freelancer → Sistema -->
+  <line x1="710" y1="260" x2="594" y2="280" stroke="#4338ca" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="594,280 606,274 604,286" fill="#4338ca"/>
+
+  <!-- ===== EXTERNAL: PostgreSQL ===== -->
+  <rect x="330" y="440" width="240" height="80" rx="10" fill="#94a3b8" stroke="#64748b" stroke-width="1.5"/>
+  <text x="450" y="468" text-anchor="middle" font-size="14" font-weight="bold" fill="white">🐘 PostgreSQL 16</text>
+  <text x="450" y="486" text-anchor="middle" font-size="10" fill="#f1f5f9">[Base de Datos Externa]</text>
+  <text x="450" y="502" text-anchor="middle" font-size="10" fill="#f1f5f9">Almacena todos los datos del</text>
+  <text x="450" y="516" text-anchor="middle" font-size="10" fill="#f1f5f9">marketplace vía Prisma ORM</text>
+
+  <!-- Arrow: Sistema ↔ PostgreSQL -->
+  <line x1="450" y1="360" x2="450" y2="438" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="450,438 444,426 456,426" fill="#64748b"/>
+  <polygon points="450,362 444,374 456,374" fill="#64748b"/>
+  <rect x="460" y="388" width="96" height="20" rx="5" fill="white" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="508" y="402" text-anchor="middle" font-size="9.5" fill="#475569">Lee / Escribe datos</text>
+
+  <!-- ===== EXTERNAL: Docker ===== -->
+  <rect x="30" y="380" width="200" height="72" rx="10" fill="#94a3b8" stroke="#64748b" stroke-width="1.5"/>
+  <text x="130" y="406" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🐳 Docker Compose</text>
+  <text x="130" y="422" text-anchor="middle" font-size="10" fill="#f1f5f9">[Infraestructura]</text>
+  <text x="130" y="438" text-anchor="middle" font-size="10" fill="#f1f5f9">Orquesta los 3 contenedores</text>
+  <text x="130" y="452" text-anchor="middle" font-size="10" fill="#f1f5f9">db, backend, frontend</text>
+
+  <!-- Arrow: Docker ↔ Sistema -->
+  <line x1="230" y1="410" x2="308" y2="340" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="308,340 300,352 312,350" fill="#64748b"/>
+
+  <!-- ===== EXTERNAL: Browser ===== -->
+  <rect x="670" y="380" width="200" height="72" rx="10" fill="#94a3b8" stroke="#64748b" stroke-width="1.5"/>
+  <text x="770" y="406" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🌐 Navegador Web</text>
+  <text x="770" y="422" text-anchor="middle" font-size="10" fill="#f1f5f9">[Sistema Externo]</text>
+  <text x="770" y="438" text-anchor="middle" font-size="10" fill="#f1f5f9">Acceso mediante HTTPS</text>
+  <text x="770" y="452" text-anchor="middle" font-size="10" fill="#f1f5f9">puerto 3000 (Next.js)</text>
+
+  <!-- Arrow: Browser ↔ Sistema -->
+  <line x1="670" y1="410" x2="592" y2="340" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="592,340 600,352 588,350" fill="#64748b"/>
+</svg>

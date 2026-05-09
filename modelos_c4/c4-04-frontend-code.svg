@@ -1,0 +1,183 @@
+<svg viewBox="0 0 1000 780" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="1000" height="780" fill="#f8f9fc"/>
+
+  <!-- Title -->
+  <text x="500" y="36" text-anchor="middle" font-size="19" font-weight="bold" fill="#1e293b">Marketplace Freelance — Código Frontend (C4 Nivel 3)</text>
+  <text x="500" y="56" text-anchor="middle" font-size="11.5" fill="#64748b">Componentes internos del contenedor Next.js 15 · App Router · TypeScript</text>
+
+  <!-- Next.js container boundary -->
+  <rect x="20" y="72" width="960" height="660" rx="14" fill="none" stroke="#6366f1" stroke-width="2" stroke-dasharray="10,5"/>
+  <rect x="20" y="60" width="260" height="24" rx="6" fill="#6366f1"/>
+  <text x="150" y="76" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Contenedor: Frontend Next.js 15</text>
+
+  <!-- ===== LAYER 1: App Shell ===== -->
+  <rect x="40" y="92" width="930" height="80" rx="10" fill="#1e1b4b" stroke="#4338ca" stroke-width="1.5"/>
+  <text x="505" y="114" text-anchor="middle" font-size="12" font-weight="bold" fill="#a5b4fc">App Shell — Capa de Enrutamiento (Next.js App Router)</text>
+  <text x="505" y="130" text-anchor="middle" font-size="10" fill="#818cf8">src/app/layout.tsx  →  HTML global + fuentes + estructura raíz</text>
+  <text x="505" y="148" text-anchor="middle" font-size="10" fill="#818cf8">src/app/page.tsx  →  Redirect a /dashboard  |  src/app/globals.css  →  Tailwind base styles</text>
+  <text x="505" y="163" text-anchor="middle" font-size="10" fill="#818cf8">src/app/(dashboard)/layout.tsx  →  Shell del dashboard: Sidebar + área de contenido flexible</text>
+
+  <!-- ===== LAYER 2: Navigation ===== -->
+  <rect x="40" y="188" width="200" height="270" rx="10" fill="#312e81" stroke="#4338ca" stroke-width="1.5"/>
+  <text x="140" y="210" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#c7d2fe">Sidebar</text>
+  <text x="140" y="226" text-anchor="middle" font-size="9.5" fill="#a5b4fc">[Componente]</text>
+  <line x1="50" y1="234" x2="230" y2="234" stroke="#3730a3" stroke-width="1"/>
+  <text x="140" y="250" text-anchor="middle" font-size="9" fill="#a5b4fc">components/layout/Sidebar.tsx</text>
+  <text x="140" y="268" text-anchor="middle" font-size="9" fill="#a5b4fc">usePathname() → active link</text>
+  <text x="140" y="286" text-anchor="middle" font-size="9" fill="#c7d2fe">Links:</text>
+  <text x="140" y="301" text-anchor="middle" font-size="9" fill="#c7d2fe">📊 /dashboard</text>
+  <text x="140" y="316" text-anchor="middle" font-size="9" fill="#c7d2fe">🏷️ /categorias</text>
+  <text x="140" y="331" text-anchor="middle" font-size="9" fill="#c7d2fe">👨‍💻 /freelancers</text>
+  <text x="140" y="346" text-anchor="middle" font-size="9" fill="#c7d2fe">🧑‍💼 /clientes</text>
+  <text x="140" y="361" text-anchor="middle" font-size="9" fill="#c7d2fe">💼 /servicios</text>
+  <text x="140" y="376" text-anchor="middle" font-size="9" fill="#c7d2fe">📋 /solicitudes</text>
+  <text x="140" y="391" text-anchor="middle" font-size="9" fill="#c7d2fe">🚀 /proyectos</text>
+  <text x="140" y="416" text-anchor="middle" font-size="9" fill="#818cf8">Tailwind: bg-white</text>
+  <text x="140" y="431" text-anchor="middle" font-size="9" fill="#818cf8">w-60 border-r</text>
+  <text x="140" y="448" text-anchor="middle" font-size="9" fill="#818cf8">CORHUILA Sprint 1-3</text>
+
+  <!-- ===== LAYER 2: Pages Grid ===== -->
+  <!-- Dashboard page -->
+  <rect x="256" y="188" width="155" height="120" rx="8" fill="#0f3460" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="333" y="208" text-anchor="middle" font-size="11" font-weight="bold" fill="#93c5fd">Dashboard</text>
+  <text x="333" y="222" text-anchor="middle" font-size="9" fill="#60a5fa">[Page /dashboard]</text>
+  <line x1="263" y1="230" x2="403" y2="230" stroke="#1d4ed8" stroke-width="1"/>
+  <text x="333" y="244" text-anchor="middle" font-size="9" fill="#93c5fd">Resumen general</text>
+  <text x="333" y="258" text-anchor="middle" font-size="9" fill="#93c5fd">Contadores de entidades</text>
+  <text x="333" y="273" text-anchor="middle" font-size="9" fill="#93c5fd">Links rápidos</text>
+  <text x="333" y="288" text-anchor="middle" font-size="9" fill="#60a5fa">useEffect → fetch all</text>
+  <text x="333" y="300" text-anchor="middle" font-size="9" fill="#60a5fa">Estado React</text>
+
+  <!-- Categorias page -->
+  <rect x="421" y="188" width="155" height="120" rx="8" fill="#2e1065" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="498" y="208" text-anchor="middle" font-size="11" font-weight="bold" fill="#c4b5fd">Categorías</text>
+  <text x="498" y="222" text-anchor="middle" font-size="9" fill="#a78bfa">[Page /categorias]</text>
+  <line x1="428" y1="230" x2="568" y2="230" stroke="#5b21b6" stroke-width="1"/>
+  <text x="498" y="244" text-anchor="middle" font-size="9" fill="#c4b5fd">CRUD completo</text>
+  <text x="498" y="258" text-anchor="middle" font-size="9" fill="#c4b5fd">Modal crear/editar</text>
+  <text x="498" y="273" text-anchor="middle" font-size="9" fill="#c4b5fd">Tabla + búsqueda</text>
+  <text x="498" y="288" text-anchor="middle" font-size="9" fill="#a78bfa">categoriasService</text>
+  <text x="498" y="300" text-anchor="middle" font-size="9" fill="#a78bfa">useState/useEffect</text>
+
+  <!-- Freelancers page -->
+  <rect x="586" y="188" width="185" height="120" rx="8" fill="#0f2027" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="678" y="208" text-anchor="middle" font-size="11" font-weight="bold" fill="#4ade80">Freelancers</text>
+  <text x="678" y="222" text-anchor="middle" font-size="9" fill="#86efac">[Page /freelancers]</text>
+  <line x1="593" y1="230" x2="763" y2="230" stroke="#166534" stroke-width="1"/>
+  <text x="678" y="244" text-anchor="middle" font-size="9" fill="#4ade80">CRUD + habilidades inline</text>
+  <text x="678" y="258" text-anchor="middle" font-size="9" fill="#4ade80">Modal crear/editar</text>
+  <text x="678" y="273" text-anchor="middle" font-size="9" fill="#4ade80">Lista con perfil detallado</text>
+  <text x="678" y="288" text-anchor="middle" font-size="9" fill="#86efac">freelancersService</text>
+  <text x="678" y="300" text-anchor="middle" font-size="9" fill="#86efac">habilidadesService</text>
+
+  <!-- Clientes page -->
+  <rect x="781" y="188" width="185" height="120" rx="8" fill="#1c1917" stroke="#d97706" stroke-width="1.5"/>
+  <text x="873" y="208" text-anchor="middle" font-size="11" font-weight="bold" fill="#fcd34d">Clientes</text>
+  <text x="873" y="222" text-anchor="middle" font-size="9" fill="#fbbf24">[Page /clientes]</text>
+  <line x1="788" y1="230" x2="958" y2="230" stroke="#92400e" stroke-width="1"/>
+  <text x="873" y="244" text-anchor="middle" font-size="9" fill="#fcd34d">CRUD completo</text>
+  <text x="873" y="258" text-anchor="middle" font-size="9" fill="#fcd34d">Modal crear/editar</text>
+  <text x="873" y="273" text-anchor="middle" font-size="9" fill="#fcd34d">Tabla + empresa field</text>
+  <text x="873" y="288" text-anchor="middle" font-size="9" fill="#fbbf24">clientesService</text>
+  <text x="873" y="300" text-anchor="middle" font-size="9" fill="#fbbf24">useState/useEffect</text>
+
+  <!-- Row 2 pages -->
+  <!-- Servicios page -->
+  <rect x="256" y="325" width="200" height="133" rx="8" fill="#172554" stroke="#1d4ed8" stroke-width="1.5"/>
+  <text x="356" y="345" text-anchor="middle" font-size="11" font-weight="bold" fill="#93c5fd">Servicios</text>
+  <text x="356" y="359" text-anchor="middle" font-size="9" fill="#60a5fa">[Page /servicios]</text>
+  <line x1="263" y1="367" x2="448" y2="367" stroke="#1d4ed8" stroke-width="1"/>
+  <text x="356" y="381" text-anchor="middle" font-size="9" fill="#93c5fd">Publicar y gestionar servicios</text>
+  <text x="356" y="396" text-anchor="middle" font-size="9" fill="#93c5fd">Filtro por categoría (CU-04)</text>
+  <text x="356" y="411" text-anchor="middle" font-size="9" fill="#93c5fd">Precio, días entrega, activo</text>
+  <text x="356" y="426" text-anchor="middle" font-size="9" fill="#60a5fa">serviciosService</text>
+  <text x="356" y="441" text-anchor="middle" font-size="9" fill="#60a5fa">freelancersService · categoriasService</text>
+  <text x="356" y="456" text-anchor="middle" font-size="9" fill="#60a5fa">select freelancer, select categoria</text>
+
+  <!-- Solicitudes page -->
+  <rect x="466" y="325" width="245" height="133" rx="8" fill="#431407" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="588" y="345" text-anchor="middle" font-size="11" font-weight="bold" fill="#fdba74">Solicitudes</text>
+  <text x="588" y="359" text-anchor="middle" font-size="9" fill="#fb923c">[Page /solicitudes]</text>
+  <line x1="473" y1="367" x2="703" y2="367" stroke="#c2410c" stroke-width="1"/>
+  <text x="588" y="381" text-anchor="middle" font-size="9" fill="#fdba74">Enviar solicitud (CU-05)</text>
+  <text x="588" y="396" text-anchor="middle" font-size="9" fill="#fdba74">Aceptar/Rechazar (CU-06)</text>
+  <text x="588" y="411" text-anchor="middle" font-size="9" fill="#fdba74">Badge de estado colorido</text>
+  <text x="588" y="426" text-anchor="middle" font-size="9" fill="#fb923c">solicitudesService</text>
+  <text x="588" y="441" text-anchor="middle" font-size="9" fill="#fb923c">clientesService · serviciosService</text>
+  <text x="588" y="456" text-anchor="middle" font-size="9" fill="#fb923c">PENDIENTE / ACEPTADA / RECHAZADA</text>
+
+  <!-- Proyectos page -->
+  <rect x="721" y="325" width="245" height="133" rx="8" fill="#1c1917" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="843" y="345" text-anchor="middle" font-size="11" font-weight="bold" fill="#fcd34d">Proyectos</text>
+  <text x="843" y="359" text-anchor="middle" font-size="9" fill="#fbbf24">[Page /proyectos]</text>
+  <line x1="728" y1="367" x2="958" y2="367" stroke="#92400e" stroke-width="1"/>
+  <text x="843" y="381" text-anchor="middle" font-size="9" fill="#fcd34d">Gestionar estado proyecto (CU-07)</text>
+  <text x="843" y="396" text-anchor="middle" font-size="9" fill="#fcd34d">Timeline de estados visual</text>
+  <text x="843" y="411" text-anchor="middle" font-size="9" fill="#fcd34d">PENDIENTE→EN_PROGRESO→</text>
+  <text x="843" y="426" text-anchor="middle" font-size="9" fill="#fcd34d">EN_REVISION→COMPLETADO/CANCELADO</text>
+  <text x="843" y="441" text-anchor="middle" font-size="9" fill="#fbbf24">proyectosService</text>
+  <text x="843" y="456" text-anchor="middle" font-size="9" fill="#fbbf24">Fechas inicio/fin · Estado badge</text>
+
+  <!-- ===== LAYER 3: Services ===== -->
+  <rect x="40" y="482" width="930" height="130" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+  <text x="505" y="504" text-anchor="middle" font-size="12" font-weight="bold" fill="#94a3b8">Capa de Servicios — src/services/ · src/interfaces/</text>
+  <text x="505" y="520" text-anchor="middle" font-size="10" fill="#64748b">Cada servicio encapsula las llamadas HTTP al backend usando apiGet/apiPost/apiPut/apiDelete de src/lib/api.ts</text>
+
+  <!-- Service boxes -->
+  <rect x="55" y="528" width="118" height="72" rx="6" fill="#1e293b"/>
+  <text x="114" y="546" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#94a3b8">freelancers</text>
+  <text x="114" y="560" text-anchor="middle" font-size="9" fill="#64748b">.service.ts</text>
+  <text x="114" y="575" text-anchor="middle" font-size="9" fill="#64748b">getAll · getById</text>
+  <text x="114" y="590" text-anchor="middle" font-size="9" fill="#64748b">create · update · del</text>
+
+  <rect x="183" y="528" width="118" height="72" rx="6" fill="#1e293b"/>
+  <text x="242" y="546" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#94a3b8">clientes</text>
+  <text x="242" y="560" text-anchor="middle" font-size="9" fill="#64748b">.service.ts</text>
+  <text x="242" y="575" text-anchor="middle" font-size="9" fill="#64748b">getAll · getById</text>
+  <text x="242" y="590" text-anchor="middle" font-size="9" fill="#64748b">create · update · del</text>
+
+  <rect x="311" y="528" width="118" height="72" rx="6" fill="#1e293b"/>
+  <text x="370" y="546" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#94a3b8">categorias</text>
+  <text x="370" y="560" text-anchor="middle" font-size="9" fill="#64748b">.service.ts</text>
+  <text x="370" y="575" text-anchor="middle" font-size="9" fill="#64748b">getAll · getById</text>
+  <text x="370" y="590" text-anchor="middle" font-size="9" fill="#64748b">create · update · del</text>
+
+  <rect x="439" y="528" width="118" height="72" rx="6" fill="#1e293b"/>
+  <text x="498" y="546" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#94a3b8">servicios</text>
+  <text x="498" y="560" text-anchor="middle" font-size="9" fill="#64748b">.service.ts</text>
+  <text x="498" y="575" text-anchor="middle" font-size="9" fill="#64748b">getAll · getByCategoria</text>
+  <text x="498" y="590" text-anchor="middle" font-size="9" fill="#64748b">create · update · del</text>
+
+  <rect x="567" y="528" width="118" height="72" rx="6" fill="#1e293b"/>
+  <text x="626" y="546" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#94a3b8">solicitudes</text>
+  <text x="626" y="560" text-anchor="middle" font-size="9" fill="#64748b">.service.ts</text>
+  <text x="626" y="575" text-anchor="middle" font-size="9" fill="#64748b">getAll · getByCliente</text>
+  <text x="626" y="590" text-anchor="middle" font-size="9" fill="#64748b">create · updateEstado</text>
+
+  <rect x="695" y="528" width="118" height="72" rx="6" fill="#1e293b"/>
+  <text x="754" y="546" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#94a3b8">proyectos</text>
+  <text x="754" y="560" text-anchor="middle" font-size="9" fill="#64748b">.service.ts</text>
+  <text x="754" y="575" text-anchor="middle" font-size="9" fill="#64748b">getAll · getById</text>
+  <text x="754" y="590" text-anchor="middle" font-size="9" fill="#64748b">update (estado)</text>
+
+  <rect x="823" y="528" width="135" height="72" rx="6" fill="#1e293b"/>
+  <text x="890" y="546" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#94a3b8">habilidades</text>
+  <text x="890" y="560" text-anchor="middle" font-size="9" fill="#64748b">.service.ts</text>
+  <text x="890" y="575" text-anchor="middle" font-size="9" fill="#64748b">getByFreelancer</text>
+  <text x="890" y="590" text-anchor="middle" font-size="9" fill="#64748b">create · delete</text>
+
+  <!-- ===== LAYER 4: HTTP Client ===== -->
+  <rect x="40" y="630" width="930" height="88" rx="10" fill="#172554" stroke="#1d4ed8" stroke-width="1.5"/>
+  <text x="505" y="654" text-anchor="middle" font-size="12" font-weight="bold" fill="#93c5fd">src/lib/api.ts — Cliente HTTP Centralizado</text>
+  <text x="505" y="671" text-anchor="middle" font-size="10" fill="#60a5fa">apiGet&lt;T&gt;(path)   apiPost&lt;T&gt;(path, body)   apiPut&lt;T&gt;(path, body)   apiDelete&lt;T&gt;(path)</text>
+  <text x="505" y="688" text-anchor="middle" font-size="10" fill="#60a5fa">BASE_URL: NEXT_PUBLIC_API_URL || http://localhost:3001  →  respuesta: {"statusCode","message","data"} → extrae .data</text>
+  <text x="505" y="705" text-anchor="middle" font-size="10" fill="#60a5fa">Content-Type: application/json  ·  Error handling: res.ok check → throw Error(err.message)</text>
+
+  <!-- Interfaces mention -->
+  <rect x="40" y="726" width="930" height="32" rx="8" fill="#1e1b4b" stroke="#4338ca" stroke-width="1"/>
+  <text x="505" y="746" text-anchor="middle" font-size="10" fill="#a5b4fc">src/interfaces/: Freelancer · Cliente · CategoriaServicio · Habilidad · Servicio · Solicitud · Proyecto — Tipado TypeScript completo para todo el dominio</text>
+
+  <!-- Arrow from services layer to http client -->
+  <line x1="505" y1="612" x2="505" y2="628" stroke="#475569" stroke-width="1.5"/>
+  <polygon points="505,628 500,618 510,618" fill="#475569"/>
+</svg>

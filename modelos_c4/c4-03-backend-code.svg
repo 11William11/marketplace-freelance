@@ -1,0 +1,183 @@
+<svg viewBox="0 0 1020 820" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="1020" height="820" fill="#f8f9fc"/>
+
+  <!-- Title -->
+  <text x="510" y="36" text-anchor="middle" font-size="19" font-weight="bold" fill="#1e293b">Marketplace Freelance — Código Backend (C4 Nivel 3)</text>
+  <text x="510" y="56" text-anchor="middle" font-size="11.5" fill="#64748b">Componentes internos del contenedor NestJS · Arquitectura Modular</text>
+
+  <!-- NestJS container boundary -->
+  <rect x="20" y="72" width="980" height="700" rx="14" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-dasharray="10,5"/>
+  <rect x="20" y="60" width="240" height="24" rx="6" fill="#0ea5e9"/>
+  <text x="140" y="76" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Contenedor: Backend NestJS</text>
+
+  <!-- ===== ENTRY POINTS (top row) ===== -->
+  <!-- main.ts -->
+  <rect x="40" y="95" width="180" height="90" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+  <text x="130" y="118" text-anchor="middle" font-size="11" font-weight="bold" fill="#94a3b8">main.ts</text>
+  <text x="130" y="134" text-anchor="middle" font-size="9.5" fill="#64748b">[Bootstrap]</text>
+  <line x1="50" y1="142" x2="210" y2="142" stroke="#1e293b" stroke-width="1"/>
+  <text x="130" y="157" text-anchor="middle" font-size="9" fill="#64748b">Puerto 3001 · CORS</text>
+  <text x="130" y="170" text-anchor="middle" font-size="9" fill="#64748b">Prefijo /api/v1</text>
+
+  <!-- AppModule -->
+  <rect x="260" y="95" width="180" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <text x="350" y="118" text-anchor="middle" font-size="11" font-weight="bold" fill="#e2e8f0">AppModule</text>
+  <text x="350" y="134" text-anchor="middle" font-size="9.5" fill="#94a3b8">[Módulo Raíz]</text>
+  <line x1="270" y1="142" x2="430" y2="142" stroke="#334155" stroke-width="1"/>
+  <text x="350" y="157" text-anchor="middle" font-size="9" fill="#94a3b8">Importa todos los</text>
+  <text x="350" y="170" text-anchor="middle" font-size="9" fill="#94a3b8">módulos del sistema</text>
+
+  <!-- PrismaModule -->
+  <rect x="480" y="95" width="180" height="90" rx="8" fill="#1e3a5f" stroke="#0ea5e9" stroke-width="1.5"/>
+  <text x="570" y="118" text-anchor="middle" font-size="11" font-weight="bold" fill="#e0f2fe">PrismaModule</text>
+  <text x="570" y="134" text-anchor="middle" font-size="9.5" fill="#7dd3fc">[Global · DB Layer]</text>
+  <line x1="490" y1="142" x2="650" y2="142" stroke="#0369a1" stroke-width="1"/>
+  <text x="570" y="157" text-anchor="middle" font-size="9" fill="#7dd3fc">PrismaService (singleton)</text>
+  <text x="570" y="170" text-anchor="middle" font-size="9" fill="#7dd3fc">Conexión a PostgreSQL</text>
+
+  <!-- Common / Interceptors -->
+  <rect x="700" y="95" width="290" height="90" rx="8" fill="#1c1917" stroke="#78716c" stroke-width="1.5"/>
+  <text x="845" y="118" text-anchor="middle" font-size="11" font-weight="bold" fill="#d6d3d1">Common / Infraestructura</text>
+  <text x="845" y="134" text-anchor="middle" font-size="9.5" fill="#a8a29e">[Transversal]</text>
+  <line x1="710" y1="142" x2="980" y2="142" stroke="#44403c" stroke-width="1"/>
+  <text x="845" y="157" text-anchor="middle" font-size="9" fill="#a8a29e">ValidationPipe · ResponseInterceptor</text>
+  <text x="845" y="170" text-anchor="middle" font-size="9" fill="#a8a29e">HttpExceptionFilter · GlobalPrefix</text>
+
+  <!-- Arrow: main → AppModule -->
+  <line x1="220" y1="140" x2="258" y2="140" stroke="#475569" stroke-width="1.5"/>
+  <polygon points="258,140 248,135 248,145" fill="#475569"/>
+
+  <!-- Arrow: AppModule → Prisma -->
+  <line x1="440" y1="140" x2="478" y2="140" stroke="#0ea5e9" stroke-width="1.5"/>
+  <polygon points="478,140 468,135 468,145" fill="#0ea5e9"/>
+
+  <!-- ===== MODULE GRID (2 rows × 4 cols) ===== -->
+  <!-- Row 1 -->
+  <!-- FreelancersModule -->
+  <rect x="40" y="230" width="215" height="165" rx="10" fill="#1a3a2e" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="147" y="255" text-anchor="middle" font-size="12" font-weight="bold" fill="#4ade80">FreelancersModule</text>
+  <text x="147" y="270" text-anchor="middle" font-size="9.5" fill="#86efac">[Sprint 1]</text>
+  <line x1="50" y1="278" x2="245" y2="278" stroke="#166534" stroke-width="1"/>
+  <text x="147" y="294" text-anchor="middle" font-size="9" fill="#86efac">Controller: GET/POST/PUT/DELETE</text>
+  <text x="147" y="309" text-anchor="middle" font-size="9" fill="#86efac">/api/v1/freelancers</text>
+  <text x="147" y="324" text-anchor="middle" font-size="9" fill="#86efac">Service: findAll, findOne, create,</text>
+  <text x="147" y="339" text-anchor="middle" font-size="9" fill="#86efac">update, remove</text>
+  <text x="147" y="354" text-anchor="middle" font-size="9" fill="#86efac">Repository: Prisma queries</text>
+  <text x="147" y="369" text-anchor="middle" font-size="9" fill="#6ee7b7">DTO: CreateFreelancerDto (DNI/email únicos)</text>
+  <text x="147" y="384" text-anchor="middle" font-size="9" fill="#6ee7b7">Entity: Freelancer</text>
+
+  <!-- ClientesModule -->
+  <rect x="270" y="230" width="215" height="165" rx="10" fill="#1a3a2e" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="377" y="255" text-anchor="middle" font-size="12" font-weight="bold" fill="#4ade80">ClientesModule</text>
+  <text x="377" y="270" text-anchor="middle" font-size="9.5" fill="#86efac">[Sprint 1]</text>
+  <line x1="280" y1="278" x2="475" y2="278" stroke="#166534" stroke-width="1"/>
+  <text x="377" y="294" text-anchor="middle" font-size="9" fill="#86efac">Controller: GET/POST/PUT/DELETE</text>
+  <text x="377" y="309" text-anchor="middle" font-size="9" fill="#86efac">/api/v1/clientes</text>
+  <text x="377" y="324" text-anchor="middle" font-size="9" fill="#86efac">Service: findAll, findOne, create,</text>
+  <text x="377" y="339" text-anchor="middle" font-size="9" fill="#86efac">update, remove</text>
+  <text x="377" y="354" text-anchor="middle" font-size="9" fill="#86efac">Repository: Prisma queries</text>
+  <text x="377" y="369" text-anchor="middle" font-size="9" fill="#6ee7b7">DTO: CreateClienteDto</text>
+  <text x="377" y="384" text-anchor="middle" font-size="9" fill="#6ee7b7">Entity: Cliente</text>
+
+  <!-- CategoriasModule -->
+  <rect x="500" y="230" width="215" height="165" rx="10" fill="#2d1b69" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="607" y="255" text-anchor="middle" font-size="12" font-weight="bold" fill="#c4b5fd">CategoriasModule</text>
+  <text x="607" y="270" text-anchor="middle" font-size="9.5" fill="#a78bfa">[Sprint 1]</text>
+  <line x1="510" y1="278" x2="705" y2="278" stroke="#5b21b6" stroke-width="1"/>
+  <text x="607" y="294" text-anchor="middle" font-size="9" fill="#a78bfa">Controller: GET/POST/PUT/DELETE</text>
+  <text x="607" y="309" text-anchor="middle" font-size="9" fill="#a78bfa">/api/v1/categorias</text>
+  <text x="607" y="324" text-anchor="middle" font-size="9" fill="#a78bfa">Service: findAll, findOne, create,</text>
+  <text x="607" y="339" text-anchor="middle" font-size="9" fill="#a78bfa">update, remove</text>
+  <text x="607" y="354" text-anchor="middle" font-size="9" fill="#a78bfa">Repository: Prisma queries</text>
+  <text x="607" y="369" text-anchor="middle" font-size="9" fill="#ddd6fe">DTO: CreateCategoriaDto</text>
+  <text x="607" y="384" text-anchor="middle" font-size="9" fill="#ddd6fe">Entity: CategoriaServicio</text>
+
+  <!-- HabilidadesModule -->
+  <rect x="730" y="230" width="265" height="165" rx="10" fill="#2d1b69" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="862" y="255" text-anchor="middle" font-size="12" font-weight="bold" fill="#c4b5fd">HabilidadesModule</text>
+  <text x="862" y="270" text-anchor="middle" font-size="9.5" fill="#a78bfa">[Sprint 1]</text>
+  <line x1="740" y1="278" x2="985" y2="278" stroke="#5b21b6" stroke-width="1"/>
+  <text x="862" y="294" text-anchor="middle" font-size="9" fill="#a78bfa">Controller: GET/POST/PUT/DELETE</text>
+  <text x="862" y="309" text-anchor="middle" font-size="9" fill="#a78bfa">/api/v1/habilidades</text>
+  <text x="862" y="324" text-anchor="middle" font-size="9" fill="#a78bfa">Service: findAll, findOne, create,</text>
+  <text x="862" y="339" text-anchor="middle" font-size="9" fill="#a78bfa">update, remove</text>
+  <text x="862" y="354" text-anchor="middle" font-size="9" fill="#a78bfa">Repository: Prisma queries</text>
+  <text x="862" y="369" text-anchor="middle" font-size="9" fill="#ddd6fe">DTO: CreateHabilidadDto</text>
+  <text x="862" y="384" text-anchor="middle" font-size="9" fill="#ddd6fe">Entity: Habilidad (FK→Freelancer)</text>
+
+  <!-- Row 2 -->
+  <!-- ServiciosModule -->
+  <rect x="40" y="430" width="280" height="175" rx="10" fill="#172554" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="180" y="455" text-anchor="middle" font-size="12" font-weight="bold" fill="#93c5fd">ServiciosModule</text>
+  <text x="180" y="470" text-anchor="middle" font-size="9.5" fill="#60a5fa">[Sprint 2 · CU-02, CU-04]</text>
+  <line x1="50" y1="478" x2="310" y2="478" stroke="#1d4ed8" stroke-width="1"/>
+  <text x="180" y="494" text-anchor="middle" font-size="9" fill="#93c5fd">GET /servicios → listar todos</text>
+  <text x="180" y="509" text-anchor="middle" font-size="9" fill="#93c5fd">GET /servicios/categoria/:id → CU-04</text>
+  <text x="180" y="524" text-anchor="middle" font-size="9" fill="#93c5fd">GET /servicios/freelancer/:id</text>
+  <text x="180" y="539" text-anchor="middle" font-size="9" fill="#93c5fd">POST /servicios → CU-02</text>
+  <text x="180" y="554" text-anchor="middle" font-size="9" fill="#93c5fd">PUT/DELETE /servicios/:id</text>
+  <text x="180" y="569" text-anchor="middle" font-size="9" fill="#bfdbfe">Service: findByCategoria, findByFreelancer</text>
+  <text x="180" y="584" text-anchor="middle" font-size="9" fill="#bfdbfe">DTO: precio, tiempoEntregaDias, activo</text>
+  <text x="180" y="599" text-anchor="middle" font-size="9" fill="#bfdbfe">Entity: Servicio (FK→Freelancer, Categoria)</text>
+
+  <!-- SolicitudesModule -->
+  <rect x="340" y="430" width="300" height="175" rx="10" fill="#431407" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="490" y="455" text-anchor="middle" font-size="12" font-weight="bold" fill="#fdba74">SolicitudesModule</text>
+  <text x="490" y="470" text-anchor="middle" font-size="9.5" fill="#fb923c">[Sprint 2-3 · CU-05, CU-06]</text>
+  <line x1="350" y1="478" x2="630" y2="478" stroke="#c2410c" stroke-width="1"/>
+  <text x="490" y="494" text-anchor="middle" font-size="9" fill="#fdba74">GET /solicitudes → todas</text>
+  <text x="490" y="509" text-anchor="middle" font-size="9" fill="#fdba74">GET /solicitudes/cliente/:id → CU-05</text>
+  <text x="490" y="524" text-anchor="middle" font-size="9" fill="#fdba74">POST /solicitudes → CU-05</text>
+  <text x="490" y="539" text-anchor="middle" font-size="9" fill="#fdba74">PUT /solicitudes/:id → CU-06</text>
+  <text x="490" y="554" text-anchor="middle" font-size="9" fill="#fdba74">LÓGICA: PENDIENTE→ACEPTADA/RECHAZADA</text>
+  <text x="490" y="569" text-anchor="middle" font-size="9" fill="#fed7aa">Si ACEPTADA → crea Proyecto automáticamente</text>
+  <text x="490" y="584" text-anchor="middle" font-size="9" fill="#fed7aa">Estado: PENDIENTE | ACEPTADA | RECHAZADA</text>
+  <text x="490" y="599" text-anchor="middle" font-size="9" fill="#fed7aa">Entity: Solicitud (FK→Cliente, Servicio)</text>
+
+  <!-- ProyectosModule -->
+  <rect x="660" y="430" width="335" height="175" rx="10" fill="#1c1917" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="827" y="455" text-anchor="middle" font-size="12" font-weight="bold" fill="#fcd34d">ProyectosModule</text>
+  <text x="827" y="470" text-anchor="middle" font-size="9.5" fill="#fbbf24">[Sprint 3 · CU-07]</text>
+  <line x1="670" y1="478" x2="985" y2="478" stroke="#92400e" stroke-width="1"/>
+  <text x="827" y="494" text-anchor="middle" font-size="9" fill="#fcd34d">GET /proyectos → listar todos</text>
+  <text x="827" y="509" text-anchor="middle" font-size="9" fill="#fcd34d">GET /proyectos/:id → detalle</text>
+  <text x="827" y="524" text-anchor="middle" font-size="9" fill="#fcd34d">PUT /proyectos/:id → cambiar estado</text>
+  <text x="827" y="539" text-anchor="middle" font-size="9" fill="#fcd34d">Estados: PENDIENTE → EN_PROGRESO</text>
+  <text x="827" y="554" text-anchor="middle" font-size="9" fill="#fcd34d">→ EN_REVISION → COMPLETADO|CANCELADO</text>
+  <text x="827" y="569" text-anchor="middle" font-size="9" fill="#fde68a">Service: findAll, findOne, update (estado)</text>
+  <text x="827" y="584" text-anchor="middle" font-size="9" fill="#fde68a">Entity: Proyecto (FK→Solicitud, 1:1)</text>
+  <text x="827" y="599" text-anchor="middle" font-size="9" fill="#fde68a">Calificacion: Sprint 4 (schema ready)</text>
+
+  <!-- ===== PRISMA DATABASE LAYER ===== -->
+  <rect x="40" y="635" width="955" height="110" rx="10" fill="#0f172a" stroke="#1e40af" stroke-width="2"/>
+  <text x="517" y="660" text-anchor="middle" font-size="13" font-weight="bold" fill="#7dd3fc">🐘 Prisma ORM — Capa de Acceso a Datos</text>
+  <text x="517" y="678" text-anchor="middle" font-size="10" fill="#475569">schema.prisma → prisma generate → @prisma/client</text>
+
+  <!-- Table pills -->
+  <rect x="55" y="688" width="105" height="22" rx="6" fill="#1e3a5f"/>
+  <text x="107" y="703" text-anchor="middle" font-size="9" fill="#7dd3fc">freelancers</text>
+  <rect x="170" y="688" width="95" height="22" rx="6" fill="#1e3a5f"/>
+  <text x="217" y="703" text-anchor="middle" font-size="9" fill="#7dd3fc">clientes</text>
+  <rect x="275" y="688" width="140" height="22" rx="6" fill="#1e3a5f"/>
+  <text x="345" y="703" text-anchor="middle" font-size="9" fill="#7dd3fc">categorias_servicio</text>
+  <rect x="425" y="688" width="100" height="22" rx="6" fill="#1e3a5f"/>
+  <text x="475" y="703" text-anchor="middle" font-size="9" fill="#7dd3fc">habilidades</text>
+  <rect x="535" y="688" width="95" height="22" rx="6" fill="#1e3a5f"/>
+  <text x="582" y="703" text-anchor="middle" font-size="9" fill="#7dd3fc">servicios</text>
+  <rect x="640" y="688" width="105" height="22" rx="6" fill="#1e3a5f"/>
+  <text x="692" y="703" text-anchor="middle" font-size="9" fill="#7dd3fc">solicitudes</text>
+  <rect x="755" y="688" width="100" height="22" rx="6" fill="#1e3a5f"/>
+  <text x="805" y="703" text-anchor="middle" font-size="9" fill="#7dd3fc">proyectos</text>
+  <rect x="865" y="688" width="120" height="22" rx="6" fill="#1e3a5f"/>
+  <text x="925" y="703" text-anchor="middle" font-size="9" fill="#7dd3fc">calificaciones</text>
+
+  <text x="517" y="732" text-anchor="middle" font-size="9.5" fill="#334155">Relaciones: CategoriaServicio 1:N Servicio · Freelancer 1:N Habilidad · Freelancer 1:N Servicio · Cliente 1:N Solicitud · Servicio 1:N Solicitud · Solicitud 1:1 Proyecto · Proyecto 1:1 Calificacion</text>
+
+  <!-- Arrows from modules to Prisma -->
+  <line x1="180" y1="605" x2="180" y2="633" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <polygon points="180,633 175,623 185,623" fill="#2563eb"/>
+  <line x1="490" y1="605" x2="490" y2="633" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <polygon points="490,633 485,623 495,623" fill="#ea580c"/>
+  <line x1="827" y1="605" x2="827" y2="633" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <polygon points="827,633 822,623 832,623" fill="#f59e0b"/>
+</svg>
