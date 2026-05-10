@@ -1,0 +1,183 @@
+// ============================================================
+// ESQUEMA DE BASE DE DATOS — PRISMA ORM
+// ============================================================
+//
+// DIAGRAMA DE RELACIONES (ER simplificado):
+//
+//   CategoriaServicio ──1:N──> Servicio
+//   Freelancer ──1:N──> Habilidad
+//   Freelancer ──1:N──> Servicio
+//   Cliente ──1:N──> Solicitud
+//   Servicio ──1:N──> Solicitud
+//   Solicitud ──1:1──> Proyecto
+//   Proyecto ──1:1──> Calificacion
+//
+// CONVENCIONES:
+//   @id @default(autoincrement())  → Clave primaria autoincremental
+//   @unique                        → Restricción UNIQUE (no duplicados)
+//   @default(now())                → Valor por defecto: fecha actual
+//   @updatedAt                     → Se actualiza automáticamente en cada UPDATE
+//   @@map("nombre_tabla")          → Nombre real de la tabla en PostgreSQL
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ── CATEGORÍA DE SERVICIO ───────────────────────────────────
+// Ej: "Diseño Gráfico", "Desarrollo Web", "Marketing Digital"
+// Es la entidad padre que agrupa servicios.
+model CategoriaServicio {
+  id          Int        @id @default(autoincrement())
+  nombre      String     @unique          // Ej: "Diseño Gráfico" (UNIQUE)
+  descripcion String?                     // Descripción opcional
+  servicios   Servicio[]                  // Servicios de esta categoría
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@map("categorias_servicio")
+}
+
+// ── FREELANCER ──────────────────────────────────────────────
+// Representa un profesional independiente que ofrece servicios.
+// Campos UNIQUE: documentoIdentidad, correoElectronico
+// Puede tener MUCHAS habilidades y MUCHOS servicios (1:N)
+model Freelancer {
+  id                  Int         @id @default(autoincrement())
+  nombres             String
+  apellidos           String
+  documentoIdentidad  String      @unique   // Ej: "1234567890"
+  correoElectronico   String      @unique   // Ej: "juan@gmail.com"
+  telefono            String?               // Opcional
+  descripcionPerfil   String                // Descripción profesional
+  portfolioUrl        String?               // URL del portafolio (opcional)
+  habilidades         Habilidad[]           // Habilidades del freelancer
+  servicios           Servicio[]            // Servicios publicados
+  createdAt           DateTime    @default(now())
+  updatedAt           DateTime    @updatedAt
+
+  @@map("freelancers")
+}
+
+// ── HABILIDAD ───────────────────────────────────────────────
+// Habilidades/tecnologías que domina un freelancer.
+// Ej: "React", "Figma", "SEO", "Traducción EN-ES"
+model Habilidad {
+  id           Int        @id @default(autoincrement())
+  nombre       String                      // Ej: "React"
+  freelancerId Int                         // FK → Freelancer.id
+  freelancer   Freelancer @relation(fields: [freelancerId], references: [id])
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  @@map("habilidades")
+}
+
+// ── CLIENTE ─────────────────────────────────────────────────
+// Representa un cliente que busca y contrata servicios freelance.
+// Campos UNIQUE: documentoIdentidad, correoElectronico
+model Cliente {
+  id                 Int         @id @default(autoincrement())
+  nombres            String
+  apellidos          String
+  documentoIdentidad String      @unique
+  correoElectronico  String      @unique
+  telefono           String?               // Opcional
+  empresa            String?               // Empresa (opcional)
+  solicitudes        Solicitud[]           // Solicitudes realizadas
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
+
+  @@map("clientes")
+}
+
+// ── SERVICIO ─────────────────────────────────────────────────
+// Servicio publicado por un freelancer con precio y tiempo de entrega.
+// FK: freelancerId, categoriaServicioId
+model Servicio {
+  id                  Int               @id @default(autoincrement())
+  titulo              String                        // Ej: "Diseño de logo profesional"
+  descripcion         String                        // Descripción detallada
+  precio              Float                         // Precio en USD/COP
+  tiempoEntregaDias   Int                           // Días estimados de entrega
+  activo              Boolean           @default(true) // Si está disponible o no
+  freelancerId        Int                           // FK → Freelancer.id
+  categoriaServicioId Int                           // FK → CategoriaServicio.id
+  freelancer          Freelancer        @relation(fields: [freelancerId], references: [id])
+  categoriaServicio   CategoriaServicio @relation(fields: [categoriaServicioId], references: [id])
+  solicitudes         Solicitud[]                   // Solicitudes de este servicio
+  createdAt           DateTime          @default(now())
+  updatedAt           DateTime          @updatedAt
+
+  @@map("servicios")
+}
+
+// ── SOLICITUD ────────────────────────────────────────────────
+// Solicitud de contratación de un cliente hacia un servicio.
+// Estado: PENDIENTE → ACEPTADA o RECHAZADA
+// Relación 1:1 con Proyecto (si es aceptada)
+model Solicitud {
+  id         Int             @id @default(autoincrement())
+  clienteId  Int                               // FK → Cliente.id
+  servicioId Int                               // FK → Servicio.id
+  mensaje    String                            // Mensaje del cliente al freelancer
+  estado     EstadoSolicitud @default(PENDIENTE)
+  cliente    Cliente         @relation(fields: [clienteId], references: [id])
+  servicio   Servicio        @relation(fields: [servicioId], references: [id])
+  proyecto   Proyecto?                         // Proyecto creado al aceptar (opcional)
+  createdAt  DateTime        @default(now())
+  updatedAt  DateTime        @updatedAt
+
+  @@map("solicitudes")
+}
+
+// ── PROYECTO ──────────────────────────────────────────────────
+// Proyecto creado cuando una solicitud es ACEPTADA por el freelancer.
+// Relación 1:1 con Solicitud (solicitudId es @unique)
+// Estado: PENDIENTE → EN_PROGRESO → EN_REVISION → COMPLETADO o CANCELADO
+model Proyecto {
+  id           Int            @id @default(autoincrement())
+  solicitudId  Int            @unique                 // 1:1 con Solicitud
+  estado       EstadoProyecto @default(PENDIENTE)
+  fechaInicio  DateTime?                              // Cuando inicia el trabajo
+  fechaFin     DateTime?                              // Cuando se completa/cancela
+  solicitud    Solicitud      @relation(fields: [solicitudId], references: [id])
+  calificacion Calificacion?                          // Calificación al finalizar (Sprint 4)
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  @@map("proyectos")
+}
+
+// ── CALIFICACIÓN ─────────────────────────────────────────────
+// Calificación del cliente al freelancer al finalizar un proyecto.
+// Sprint 4 — incluida en el schema desde el inicio para migraciones limpias.
+model Calificacion {
+  id          Int      @id @default(autoincrement())
+  proyectoId  Int      @unique                   // 1:1 con Proyecto
+  puntuacion  Int                                // Ej: 1 a 5 estrellas
+  comentario  String?                            // Reseña opcional
+  proyecto    Proyecto @relation(fields: [proyectoId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("calificaciones")
+}
+
+// ── ENUMS ─────────────────────────────────────────────────────
+enum EstadoSolicitud {
+  PENDIENTE
+  ACEPTADA
+  RECHAZADA
+}
+
+enum EstadoProyecto {
+  PENDIENTE
+  EN_PROGRESO
+  EN_REVISION
+  COMPLETADO
+  CANCELADO
+}
